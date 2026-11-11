@@ -1,0 +1,3 @@
+careflow:
+  demo-enabled: true
+  demo-password: ${DEMO_PASSWORD:careflow-demo}
