@@ -26,6 +26,7 @@
 | PostgreSQL·HTTP 통합 테스트 | 11개 통과 | Flyway·스키마 검증, 인증·실제 CSRF 회전, 역할·센터 제한, 중복·동시 청구/수납, 롤백, 검색·집계 |
 | TypeScript 검사·Vite 빌드 | 통과 | 타입 검사와 프로덕션 번들 생성 |
 | Vitest | 4개 통과 | 미확인 수납 요청 키 보존, 입력 변경·센터별 분리, 성공 후 제거, 손상된 저장값 처리 |
+| npm audit | 0건 | 개발·테스트 의존성을 포함한 설치 그래프 검사, Vitest 4.1.12로 갱신 |
 | Playwright 브라우저 | 7개 통과 | 아래 실제 화면·API 흐름 |
 
 **자동 테스트 합계 29개, 실패 0개.**
@@ -50,6 +51,7 @@
 | PostgreSQL | 14.15, embedded PostgreSQL의 실제 서버 프로세스 |
 | Node.js | 24.22.1 |
 | Vue / Vite | 3.5.45 / 7.3.8 |
+| Vitest | 4.1.12 |
 | Playwright / 브라우저 | 1.58.2 / Chrome Headless Shell 145.0.7632.6 |
 
 환경에서 일반 Chromium의 로컬 소켓 생성이 제한되어, 공식 Chrome Headless Shell로 브라우저 검증을 수행했습니다. 테스트 설정은 필요하면 `CAREFLOW_CHROMIUM_PATH`로 브라우저 실행 파일을 지정할 수 있습니다. 일반 개발 환경과 CI는 Playwright가 설치한 Chromium을 기본 사용합니다.
@@ -67,7 +69,7 @@
 ## 아직 직접 실행하지 않은 구성
 
 - Docker Engine이 없는 환경이므로 **Compose 전체 실행과 Docker 이미지 빌드는 미검증**입니다. Compose에는 PostgreSQL 17을 지정했으며 로컬 자동 검증에 사용한 DB는 위 표의 14.15입니다.
-- CI 워크플로를 추가했으나, 이 문서의 통과 수치는 위 환경에서 직접 실행한 결과입니다. GitHub Actions의 실행 결과는 저장소 Actions에서 별도로 확인합니다.
+- CI는 Ubuntu 24.04·Java 17·Node 24로 실행 환경을 고정했습니다. 이 문서의 통과 수치는 직접 실행한 결과이며 GitHub Actions의 실행 결과는 저장소 Actions에서 별도로 확인합니다.
 
 ## 범위
 
